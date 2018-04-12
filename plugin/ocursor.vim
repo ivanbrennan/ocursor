@@ -6,7 +6,7 @@ augroup CursorGroup
   autocmd BufReadPost * call s:restore_cursor_position()
 augroup END
 
-func! s:restore_cursor_position()
+func! s:restore_cursor_position() abort
   if line("'\"") > 1 && line("'\"") <= line("$")
     exe "normal! g`\""
   endif
