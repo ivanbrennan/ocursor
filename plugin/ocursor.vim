@@ -27,6 +27,11 @@ elseif exists("$ITERM_PROFILE")
     let &t_SR="\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
     let &t_EI="\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
   endif
+elseif exists("$TMUX")
+  " Linux multiplexed
+  let &t_SI="\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
+  let &t_SR="\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
+  let &t_EI="\<Esc>Ptmux;\<Esc>\<Esc>[0 q\<Esc>\\"
 elseif &term =~ 'xterm\|alacritty\|st-'
   " Linux
   let &t_SI="\<Esc>[6 q"
